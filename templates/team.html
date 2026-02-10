@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Team - {{ data.name }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero__inner">
+        <h2>Meet Our Team</h2>
+        <p>Certified engineers and support staff committed to quality service.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section__header">
+        <h3>Service Experts</h3>
+        <p>Focused on delivering dependable repairs and maintenance.</p>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>Hardware Specialists</h4>
+            <p>Diagnostics, motherboard repair, and component replacement.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Networking Engineers</h4>
+            <p>LAN/WiFi setup, routing, and performance optimization.</p>
+        </div>
+        <div class="feature-card">
+            <h4>Support Desk</h4>
+            <p>Friendly guidance, follow-ups, and after-service support.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Services - {{ data.name }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero__inner">
+        <h2>Our Services</h2>
+        <p>Best solutions for hardware repair, networking, CCTV, and maintenance.</p>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="section__header">
+        <h3>What we do</h3>
+        <p>Professional support and maintenance with genuine parts and skilled technicians.</p>
+    </div>
+    <div class="services-grid">
+        {% for service in data.deals_in %}
+        <article class="service-card">
+            <div class="service-card__icon"><img src="{{ url_for('static',filename='images/' + service.title + '.png') }}" alt="{{ service.title }}"></div>
+            <h4>{{ service.title }}</h4>
+            <p>{{ service.desc }}</p>
+            <a class="service-card__link" href="{{ url_for('contact') }}">Book now</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

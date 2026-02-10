@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Shiv Computer Center{% endblock %}</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/scc.png') }}?v=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/scc.png') }}?v=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/scc.png') }}?v=1">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/scc.png') }}?v=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <header class="site-header">
+        
+        <nav class="nav">
+            <div class="nav__brand">
+                <span class="nav__logo"><img src="{{ url_for('static',filename='images/scc.png') }}" alt="scc"></span>
+                <span class="welcome-name">{{ data.name }}</span>
+            </div>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+                ☰
+            </button>
+            <div class="nav__links">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('services') }}">Service</a>
+                <a href="{{ url_for('team') }}">Team</a>
+                <a href="{{ url_for('blog') }}">Blog</a>
+                <a class="nav__cta" href="{{ url_for('contact') }}">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <p>{{ data.name }} — Fixing Technology, Building Trust.</p>
+        <span class="welcome-name"> {{ data.name }}.</span>
+        <div class="top-bar">
+            <div class="top-bar__inner">
+                <div class="top-bar__left">
+                    <span><i class="fa-solid fa-envelope icon"></i> {{ data.email }}</span>
+                    <span><i class="fa-solid fa-phone icon"></i> {{ data.phone[0] }}</span>
+                </div>
+                <div class="top-bar__right">
+                    <span><i class="fa-solid fa-clock icon"></i> Mon - Sat 9:00-17:00</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

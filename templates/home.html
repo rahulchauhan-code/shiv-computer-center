@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}{{ data.name }} - Home{% endblock %}
+
+{% block content %}
+<section class="hero" id="about">
+    <div class="hero__content">
+        <p class="hero__eyebrow" style="color: aqua;"><i class="fa-solid fa-shield-halved icon"></i> Reliable IT & Repair Services</p>
+        <h2 class="hero__title welcome-animate">The Smart Way to Fix Your Computer</h2>
+        <p class="hero__text">Welcome to <span class="welcome-name">{{ data.name }}</span>. Expert diagnostics, fast repairs, and trusted service at competitive prices.</p>
+        <div class="hero__actions">
+            <a class="btn btn-light" href="{{ url_for('services') }}">Explore Services</a>
+            <a class="btn btn-outline" href="{{ url_for('contact') }}">Get in Touch</a>
+        </div>
+        <div class="hero__meta">
+            <div>
+                <span class="meta__label"><i class="fa-solid fa-user-tie icon"></i> Owned By</span>
+                <span class="meta__value welcome-name" style="font-size: large;">{{ data.owner }}</span>
+            </div>
+            <div>
+                <span class="meta__label"><i class="fa-solid fa-location-dot icon"></i> Location</span>
+                <span class="meta__value"><a style="color: white;" href="https://maps.app.goo.gl/BfuT5tt65oMwd8Hj7?g_st=aw" target="_blank">{{ data.address }}</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="hero__media" aria-hidden="true">
+        <img src="{{ url_for('static',filename='images/profile.jpeg') }}" alt="Desktop">
+        <img src="{{ url_for('static',filename='images/camra3.jpeg') }}" alt="camera3">
+    </div>
+</section>
+
+<section class="info-strip">
+    <div class="info-strip__item">
+        <span class="info-strip__title"><i class="fa-solid fa-phone icon"></i> Call Us</span>
+        <span class="info-strip__value"><a href="tel:{{ data.phone[0] }}">{{ data.phone[0] }}</a></span>
+    </div>
+    <div class="info-strip__item">
+        <span class="info-strip__title"><i class="fa-solid fa-envelope icon"></i> Email</span>
+        <span class="info-strip__value"><a href="mailto:{{ data.email }}">{{ data.email }}</a></span>
+    </div>
+    <div class="info-strip__item">
+        <span class="info-strip__title"><i class="fa-solid fa-clock icon"></i> Hours</span>
+        <span class="info-strip__value">Mon - Sat 9:00-17:00</span>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="section__header">
+        <h3>Complete Repair & Maintenance Solutions</h3>
+        <p>Comprehensive services for every device and requirement</p>
+    </div>
+    <div class="services-grid">
+        {% for service in data.deals_in %}
+        <article class="service-card">
+            <div class="service-card__icon"><img src="{{url_for('static',filename='images/' + service.title + '.png')}}" alt="{{ service.title }}"></div>
+            <h4>{{ service.title }}</h4>
+            <p>{{ service.desc }}</p>
+            <a class="service-card__link" href="{{ url_for('services') }}">Learn More →</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section section-benefits" id="team">
+    <div class="section__header">
+        <h3>Why Choose Us?</h3>
+        <p>Experience the difference with professional service</p>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-certificate"></i></div>
+            <h4>Certified Engineers</h4>
+            <p>Trained professionals with extensive hands-on experience in all device types.</p>
+        </div>
+        <div class="feature-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h4>Fast Turnaround</h4>
+            <p>Most repairs completed within 24-48 hours with minimal wait time.</p>
+        </div>
+        <div class="feature-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-shield"></i></div>
+            <h4>Genuine Parts</h4>
+            <p>Quality parts from trusted brands with comprehensive service warranties.</p>
+        </div>
+        <div class="feature-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-tags"></i></div>
+            <h4>Transparent Pricing</h4>
+            <p>No hidden charges - clear quotes before any work begins.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-cta" id="blog">
+    <div class="cta-box">
+        <div class="cta-content">
+            <h3>Ready to Fix Your Device?</h3>
+            <p style="color: aqua;">Get professional support and quick solutions from our expert team.</p>
+        </div>
+        <div class="cta-actions">
+            <a class="btn btn-primary" href="{{ url_for('contact') }}"><i class="fa-solid fa-phone icon"></i> Contact Now</a>
+            <a class="btn btn-secondary" href="{{ url_for('services') }}">View All Services</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

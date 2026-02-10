@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - {{ data.name }}{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero__inner">
+        <h2>Latest Updates</h2>
+        <p>Tips and insights from our repair specialists.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section__header">
+        <h3>Service Insights</h3>
+        <p>Helpful guides to keep your devices running smoothly.</p>
+    </div>
+    <div class="services-grid">
+        <article class="service-card">
+            <div class="service-card__icon">🧰</div>
+            <h4>Preventive Maintenance Checklist</h4>
+            <p>Keep your hardware healthy with these easy monthly checks.</p>
+            <a class="service-card__link" href="{{ url_for('contact') }}">Get support</a>
+        </article>
+        <article class="service-card">
+            <div class="service-card__icon">💡</div>
+            <h4>Boost PC Performance</h4>
+            <p>Simple upgrades that make a big difference in speed.</p>
+            <a class="service-card__link" href="{{ url_for('contact') }}">Ask an expert</a>
+        </article>
+        <article class="service-card">
+            <div class="service-card__icon">🔒</div>
+            <h4>Data Safety Tips</h4>
+            <p>Backup strategies to protect your important files.</p>
+            <a class="service-card__link" href="{{ url_for('contact') }}">Learn more</a>
+        </article>
+    </div>
+</section>
+{% endblock %}

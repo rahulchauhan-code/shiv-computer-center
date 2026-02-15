@@ -52,7 +52,7 @@
     <div class="services-grid">
         {% for service in data.deals_in %}
         <article class="service-card">
-            <div class="service-card__icon"><img src="{{url_for('static',filename='images/' + service.title + '.png')}}" alt="{{ service.title }}"></div>
+            <div class="service-card__icon"><img src="{{url_for('static',filename='images/' + service.title.replace('%20','') + '.png')}}" alt="{{ service.title }}"></div>
             <h4>{{ service.title }}</h4>
             <p>{{ service.desc }}</p>
             <a class="service-card__link" href="{{ url_for('services') }}">Learn More →</a>

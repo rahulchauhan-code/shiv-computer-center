@@ -10,6 +10,12 @@
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/scc.png') }}?v=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Vercel Speed Insights -->
+    <script type="module">
+        import { injectSpeedInsights } from 'https://cdn.jsdelivr.net/npm/@vercel/speed-insights@2.0.0/dist/index.mjs';
+        injectSpeedInsights();
+    </script>
 </head>
 <body>
     <header class="site-header">
